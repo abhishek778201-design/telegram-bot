@@ -129,10 +129,20 @@ async def hello(
     )
 
 
+async def yt_cmd(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE
+):
+    await update.effective_message.reply_text(
+        "https://t.me/VikasNCERT"
+    )
+
+
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("hello", hello))
+app.add_handler(CommandHandler("yt", yt_cmd))
 app.add_handler(CommandHandler("help", help_cmd))
 
 app.add_handler(
