@@ -138,6 +138,9 @@ async def yt_cmd(
     )
 
 
+# Deploy Note:
+# Ensure the following environment variables are available in your shell:
+#   BOT_TOKEN, RENDER_EXTERNAL_URL, PORT
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
