@@ -123,6 +123,7 @@ async def anything(
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler("help", help_cmd))
 
 app.add_handler(
