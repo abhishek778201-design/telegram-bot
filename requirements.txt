@@ -1,6 +1,6 @@
 # Telegram Bot Frameworks
 python-telegram-bot[webhooks]==22.3
-pyrogram>=2.0.107
+kurigram
 tgcrypto>=2.2.3
 
 # Web Framework
