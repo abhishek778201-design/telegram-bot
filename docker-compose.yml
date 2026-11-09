@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: quizplatform-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: quizplatform
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - quiznetwork
+
+  app:
+    build: .
+    container_name: quizplatform-app
+    restart: unless-stopped
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017
+      - MONGO_DB_NAME=quizplatform
+      - WEBAPP_HOST=0.0.0.0
+      - WEBAPP_PORT=8000
+      - LOG_LEVEL=INFO
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    networks:
+      - quiznetwork
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  mongodb_data:
+
+networks:
+  quiznetwork:
+    driver: bridge
