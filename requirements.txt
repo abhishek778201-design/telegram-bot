@@ -1,7 +1,7 @@
 # Telegram Bot Frameworks
 python-telegram-bot[webhooks]==22.3
 kurigram
-tgcrypto>=2.2.3
+tgcrypto==1.2.5
 
 # Web Framework
 fastapi>=0.110.0
